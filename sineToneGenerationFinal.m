@@ -56,6 +56,7 @@ title('Spectrogram of Chirp Signal, 0-8 kHz');
 ylim([0 8]);
 %% Part 3:CETK Audio Signal
 % 
+sineWave = (1:44100);
 cetkFreq = [1174.66, 1318.51, 1046.50, 523.25, 783.99]; 
 t = linspace(0, 1, sr);
 for c = 1:5
@@ -63,9 +64,9 @@ for c = 1:5
 end
 cetkFinal = [sineWave(1,:),sineWave(2,:), sineWave(3,:), sineWave(4,:), sineWave(5,:)];
 sound(cetkFinal, sr);
-audiowrite('Will&Yonik-CETK.wav', cetfFinal, sr);
+audiowrite('Will&Yonik-CETK.wav', cetkFinal, sr);
 
-spectrogram(cetfFinal,window_size, 128, 512, sr, 'yaxis')
+spectrogram(cetkFinal,window_size, 128, 512, sr, 'yaxis')
 ylim([0 4]);
 t = linspace(0, duration, sr);
 %% Part 4: Combining sound files
